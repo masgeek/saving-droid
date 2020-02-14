@@ -9,8 +9,7 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:layout_height="wrap_content">
 
 
         <com.mikhaellopez.circularprogressbar.CircularProgressBar
@@ -20,9 +19,11 @@
             android:layout_centerInParent="true"
             app:cpb_background_progressbar_color="@color/progressBarBg"
             app:cpb_background_progressbar_width="20dp"
-            app:cpb_progress="39"
+            app:cpb_progress="0"
             app:cpb_progress_direction="to_right"
-            app:cpb_progressbar_color="@color/progressBar"
+            app:cpb_progressbar_color_direction="bottom_to_top"
+            app:cpb_progressbar_color_start="@color/progressBarStart"
+            app:cpb_progressbar_color_end="@color/progressBarEnd"
             app:cpb_progressbar_width="20dp"
             app:cpb_round_border="true" />
 

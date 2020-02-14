@@ -15,9 +15,15 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    var circularProgressBar: CircularProgressBar? = null
-    var txtProgress: TextView? = null
-    var button: Button? = null
+    @BindView(R.id.circularProgressBar)
+    lateinit var circularProgressBar: CircularProgressBar
+
+    @BindView(R.id.txtProgress)
+    lateinit var txtProgress: TextView
+
+    @BindView(R.id.button)
+    lateinit var button: Button
+
 
     val targetAmount: Float = 715000F
     var savedAmount: Float = 350000F
@@ -26,19 +32,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        ButterKnife.bind(this)
 
-        circularProgressBar = findViewById<CircularProgressBar>(R.id.circularProgressBar)
-        txtProgress = findViewById<TextView>(R.id.txtProgress)
-        button = findViewById<Button>(R.id.button)
 
-        button?.setOnClickListener { view ->
+        button.setOnClickListener { view ->
             Toast.makeText(this@MainActivity, "You clicked me.", Toast.LENGTH_SHORT).show()
             remainingAmount = targetAmount - savedAmount
             val percentage = (savedAmount * 100) / targetAmount
 
-            txtProgress?.text = "${percentage.toInt()}%"
+            txtProgress.text = "${percentage.toInt()}%"
 
-            circularProgressBar.apply { this!!.progress = percentage }
+            circularProgressBar.apply { progress = percentage }
         }
     }
 }
